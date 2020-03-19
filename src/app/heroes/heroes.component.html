@@ -1,0 +1,35 @@
+<h2>{{ hero.name | uppercase }} Details</h2>
+<div><span>ID: {{ hero.id }}</span></div>
+<div><span>Nome: {{ hero.name }}</span></div>
+
+<div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+</div>
+
+<div class='container row'>
+  <div class='hero col-md-3' *ngFor='let hero of heroes'>
+
+    <div class='card' [class.selected]='hero === selectedHero'>
+      <h5 class='card-header'>{{ hero.name }}</h5>
+
+      <div>
+        <img class='card-img-top' [src]="hero.img || 'assets/img/default.jpeg'" alt="{{ hero.name }}'s picture" >
+      </div>
+
+      <div class = 'card-body'>
+        <h6 class='card-subtitle mb-2 text-muted'>ID: {{ hero.id }}</h6>
+        <div><span>Nome: {{ hero.name }}</span></div>
+        <div><span>Tipo: Lutador</span></div>
+      </div>
+      <div class='card-footer'> 
+        <p class='btn btn-primary' (click)='onSelect(hero)'>Editar</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<app-hero-detail [hero]='selectedHero'></app-hero-detail>

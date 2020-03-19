@@ -1,0 +1,14 @@
+<div class='container row'>
+    <fieldset *ngIf='hero' class='col-md-4'>
+        <legend>Editar</legend>
+        <h2>{{hero.name | uppercase}} Details</h2>
+        <div>
+            <label class='col-md-3'>ID:</label>
+            <input class='col-md-9' [value]='hero.id' disabled>
+        </div>
+        <div>
+            <label class='col-md-3'>Name:</label>
+            <input class='col-md-9' [(ngModel)]='hero.name'>
+        </div>
+    </fieldset>
+</div>
