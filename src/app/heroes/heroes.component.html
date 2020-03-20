@@ -15,7 +15,10 @@
       <h5 class='card-header'>{{ hero.name }}</h5>
 
       <div>
-        <img class='card-img-top' [src]="hero.img || 'assets/img/default.jpeg'" alt="{{ hero.name }}'s picture" >
+        <!-- Imagem Default localizada no ASSETS
+        <img class='card-img-top' [src]="hero.img || 'https://app.nucleobelavista.com.br/img/user.jpg'" alt="{{ hero.name }}'s picture" >
+        -->
+        <img class='card-img-top' [src]="hero.img || 'https://app.nucleobelavista.com.br/img/user.jpg'" alt="{{ hero.name }}'s picture" >
       </div>
 
       <div class = 'card-body'>
