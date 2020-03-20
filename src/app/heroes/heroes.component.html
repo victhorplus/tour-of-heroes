@@ -7,9 +7,9 @@
 
       <div>
         <!-- Imagem Default localizada no ASSETS
-        <img class='card-img-top' [src]="hero.img || 'https://app.nucleobelavista.com.br/img/user.jpg'" alt="{{ hero.name }}'s picture" >
+        <img class='card-img-top' [src]="hero.img" onerror='this.src="assets/img/deafult.jpeg"' alt="{{ hero.name }}'s picture" >
         -->
-        <img class='card-img-top' [src]="hero.img || 'https://app.nucleobelavista.com.br/img/user.jpg'" alt="{{ hero.name }}'s picture" >
+        <img class='card-img-top' [src]="hero.img" onerror='this.src="https://app.nucleobelavista.com.br/img/user.jpg"' alt="{{ hero.name }}'s picture" >
       </div>
 
       <div class = 'card-body'>
