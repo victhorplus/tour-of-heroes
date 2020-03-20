@@ -16,7 +16,6 @@ export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService, private messageService: MessageService) {}
   ngOnInit(): void {
     this.getHeroes();
-    this.heroes.push(this.hero)
   }
 
   onSelect(hero){
@@ -26,12 +25,6 @@ export class HeroesComponent implements OnInit {
 
   getHeroes():void{
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes);
-  }
-
-  hero: Hero = {
-    id: 11,
-    name: 'Windstorm',
-    img: ''
   }
  
   heroes: Hero[];
