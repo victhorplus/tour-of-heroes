@@ -6,9 +6,6 @@
       <h5 class='card-header'>{{ hero.name }}</h5>
 
       <div>
-        <!-- Imagem Default localizada no ASSETS
-        <img class='card-img-top' [src]="hero.img" onerror='this.src="assets/img/deafult.jpeg"' alt="{{ hero.name }}'s picture" >
-        -->
         <img class='card-img-top' [src]="hero.img" onerror='this.src="https://app.nucleobelavista.com.br/img/user.jpg"' alt="{{ hero.name }}'s picture" >
       </div>
 
@@ -18,7 +15,8 @@
         <div><span>Tipo: Lutador</span></div>
       </div>
       <div class='card-footer'>
-        <a class='btn btn-primary' routerLink='/detail/{{ hero.id }}'>Editar</a>
+        <a class='btn btn-danger' title="delete hero" (click)='delete(hero)'>Excluir</a>
+        <a class='btn btn-primary' title="edit hero" routerLink='/detail/{{ hero.id }}'>Editar</a>
       </div>
     </div>
 
@@ -28,7 +26,8 @@
 <div class='container row'>
 <h2 class='col-md-12'>Adicionar novo herói</h2>
 
-<label for="heroName">Hero Name</label>
-<input #heroName placeholder="Hero name" id='heroName'>
+<label for="heroName"><h4>Hero Name: </h4></label>
+<input #heroName placeholder="Hero name" id='heroName' class='form-control col-md-4'>
+
 <button class='btn btn-primary' (click)='add(heroName.value); heroName.value="" '>Salvar</button>
 </div>
