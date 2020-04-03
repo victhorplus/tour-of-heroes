@@ -11,6 +11,9 @@ import { Hero } from './hero'
 })
 export class HeroService {
   private heroesUrl = "http://localhost:8080/api/heroes"; // URL to web api
+  private httpOptions = {
+    headers: new HttpHeaders({'Content-type': 'application/json'})
+  };
 
   constructor(
     private http: HttpClient,
@@ -45,7 +48,14 @@ export class HeroService {
             )
   }
 
-  
+  updateHero(hero: Hero): Observable<any>{
+    this.log("Hero Service: update hero");
+    return this.http.put(`${this.heroesUrl}/${hero.id}`, hero, this.httpOptions)
+      .pipe(
+        tap(_ => console.log(`Hero updated: ${hero.id}`)),
+        catchError(this.handleError<any>('updateHero'))
+      )
+  }
   private log(message){
     this.messageService.add(message);
   }
