@@ -2,7 +2,9 @@ module.exports = () => {
     const heroes = require('../data/mock-heroes.json');
     const controller = {}
 
-    controller.getHeroes = (req, res) => res.status(200).json(heroes);
+    controller.getHeroes = (req, res) => {
+        res.status(200).json(heroes);
+    }
     
     controller.getHero = (req, res) => {
         var id = req.params.id;
