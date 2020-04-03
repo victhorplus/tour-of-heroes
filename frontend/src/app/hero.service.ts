@@ -45,6 +45,7 @@ export class HeroService {
             )
   }
 
+  
   private log(message){
     this.messageService.add(message);
   }
