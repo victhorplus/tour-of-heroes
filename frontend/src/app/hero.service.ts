@@ -52,10 +52,20 @@ export class HeroService {
     this.log("Hero Service: update hero");
     return this.http.put(`${this.heroesUrl}/${hero.id}`, hero, this.httpOptions)
       .pipe(
-        tap(_ => console.log(`Hero updated: ${hero.id}`)),
+        tap(_ => this.log(`Hero updated: ${hero.id}`)),
         catchError(this.handleError<any>('updateHero'))
       )
   }
+
+  addHero(hero: Hero): Observable<Hero>{
+    this.log('Hero Service: inserted hero')
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions)
+        .pipe(
+          tap(_ => this.log(`Hero insert: ${hero.name}`)),
+          catchError(this.handleError<Hero>('addHero', ))
+        )
+  }
+
   private log(message){
     this.messageService.add(message);
   }

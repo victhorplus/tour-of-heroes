@@ -24,3 +24,11 @@
 
   </div>
 </div>
+
+<div class='container row'>
+<h2 class='col-md-12'>Adicionar novo herói</h2>
+
+<label for="heroName">Hero Name</label>
+<input #heroName placeholder="Hero name" id='heroName'>
+<button class='btn btn-primary' (click)='add(heroName.value); heroName.value="" '>Salvar</button>
+</div>
